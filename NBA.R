@@ -1,6 +1,3 @@
-
-
-knitr::opts_chunk$set(echo = FALSE)
 library(bitops)
 library(XML)
 library(RCurl)
@@ -43,9 +40,9 @@ write.csv(data,"nba.csv",row.names=FALSE)
 
 data$Age<-as.numeric(data$Age)
 
-ggplot(data,aes(x = Height, y = Position))+geom_point(na.rm = TRUE,col = "red", size = 4)+labs(title = "Player's Height and position")
+#ggplot(data,aes(x = Height, y = Position))+geom_point(na.rm = TRUE,col = "red", size = 4)+labs(title = "Player's Height and position")
 
-ggsave("points.png", width = 6, height = 6)
+#ggsave("points.png", width = 6, height = 6)
 
 
 ggplot(data,aes(x = Age,y=Position))+geom_violin(draw_quantiles = T,col = ("violet"), bg=("steelblue"))+labs(title = "Player's ages and position")
@@ -53,8 +50,8 @@ ggplot(data,aes(x = Age,y=Position))+geom_violin(draw_quantiles = T,col = ("viol
 ggsave("violin.png", width = 6, height = 6)
 
 
-ggplot(data,aes(x = Age))+geom_boxplot(col = "steelblue",bg="cyan")+labs(title = "Player's ages")
-ggsave("boxplot.png", width = 6, height = 6)
+#ggplot(data,aes(x = Age))+geom_boxplot(col = "steelblue",bg="cyan")+labs(title = "Player's ages")
+#ggsave("boxplot.png", width = 6, height = 6)
 
 
 ggplot(data,aes(x = Age))+geom_histogram(binwidth = 0.1)+stat_bin(bins = 30,col = "green")+labs(title = "Count of NBA Player's ages")
