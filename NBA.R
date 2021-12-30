@@ -1,10 +1,15 @@
+knitr::opts_chunk$set(echo = FALSE)
 library(bitops)
 library(XML)
 library(RCurl)
 library(dplyr)
-library(ggfortify)
-library(ggplot2)
 library(kableExtra)
+library(ggplot2)
+library(ggfortify)
+library(httr)
+library(plyr)
+library(readr)
+library(plotly)
 
 
 
