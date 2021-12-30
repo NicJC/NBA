@@ -50,9 +50,9 @@ data$Age<-as.numeric(data$Age)
 #ggsave("points.png", width = 6, height = 6)
 
 
-#ggplot(data,aes(x = Age,y=Position))+geom_violin(draw_quantiles = T,col = ("violet"), bg=("steelblue"))+labs(title = "Player's ages and position")
+ggplot(data,aes(x = Age,y=Position))+geom_violin(draw_quantiles = T,col = ("violet"), bg=("steelblue"))+labs(title = "Player's ages and position")
 
-#ggsave("violin.png", width = 6, height = 6)
+ggsave("violin.png", width = 6, height = 6)
 
 
 #ggplot(data,aes(x = Age))+geom_boxplot(col = "steelblue",bg="cyan")+labs(title = "Player's ages")
