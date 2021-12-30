@@ -30,7 +30,7 @@ data<-data[complete.cases(data), ]
 
 
 
-data<-data.frame("Name" = data$NULL.Name,"Position" = data$NULL.POS, "Age" = data$NULL.Age, "Height" = data$NULL.HT , "Weight" = data$NULL.WT, "College" = data$NULL.College , "Salary" = data$NULL.Salary)
+data<-data.frame("Name" = data$NULL.Name,"Position" = data$NULL.POS, "Age" = data$NULL.Age, "Height" = data$NULL.HT , "Weight" = data$NULL.WT, "College" = data$NULL.College , "Salary" = data$NULL.Salary) + 
 
 table<-kable(data)%>%
 
@@ -41,39 +41,22 @@ write.csv(data,"nba.csv",row.names=FALSE)
 
 
 
-ggplot(data,aes(x = Height, y = Position))+geom_point()
+ggplot(data,aes(x = Height, y = Position))+geom_point(na.rm = TRUE,col = "red", size = 4)+labs(title = "Player's Height and position")
 
 ggsave("points.png", width = 6, height = 6)
 
 
-table
-
-
-
-
-
 data$Age<-as.numeric(data$Age)
 
-str(data)
 
+ggplot(data,aes(x = Age,y=Position))+geom_violin(draw_quantiles = T,col = ("violet"), bg=("steelblue"))+labs(title = "Player's ages and position")
 
-
-library(vioplot)
-x1 <- data$Age
-
-vioplot(x1,
-        col="gold")
-grid()
-title("Violin Plot of Player's ages")
 ggsave("violin.png", width = 6, height = 6)
 
 
+ggplot(data,aes(x = Age))+geom_boxplot(col = "steelblue",bg="cyan")+labs(title = "Player's ages")
+ggsave("boxplot.png", width = 6, height = 6)
 
 
-boxplot(data$Age, main = "boxplot of Player's Ages", horizontal = T, col = "violet")
-grid()
-ggsave("box.png", width = 6, height = 6)
-
-ggplot(data,aes(x = Age))+geom_histogram()+stat_bin(bins = 30,col = "cyan")+labs(title = "Count of NBA Player's ages")
+ggplot(data,aes(x = Age))+geom_histogram(binwidth = 0.1)+stat_bin(bins = 30,col = "green")+labs(title = "Count of NBA Player's ages")
 ggsave("hist.png", width = 6, height = 6)
-
